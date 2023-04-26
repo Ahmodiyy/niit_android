@@ -24,10 +24,9 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.button);
         editText = findViewById(R.id.input);
         button.setOnClickListener((View v)-> {
-            Log.d("VIEW ID", String.valueOf(v.getId()));
+            Intent intent = new Intent(this, MyService.class);
+            startService(intent);
 
-            Intent intent = new Intent(this, MainActivity2.class);
-            startActivity(intent);
         });
     }
 }
