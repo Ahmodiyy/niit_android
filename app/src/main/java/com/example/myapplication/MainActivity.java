@@ -86,9 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
     int checkLocationPermission(){
         return  ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
-//        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED && != PackageManager.PERMISSION_GRANTED){
-//
-//        }
     }
      boolean checkLocationProvider(){
          LocationManager locationManager =  (LocationManager) getSystemService(Context.LOCATION_SERVICE);
