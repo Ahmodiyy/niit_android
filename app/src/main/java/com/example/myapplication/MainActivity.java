@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textView2;
     int REQUEST_CODE = 1;
     FusedLocationProviderClient fusedLocationProviderClient;
+    
     LocationCallback locationCallback = new LocationCallback(){
         @Override
         public void onLocationResult(LocationResult locationResult) {
