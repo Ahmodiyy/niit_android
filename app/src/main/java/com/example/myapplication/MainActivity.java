@@ -1,42 +1,22 @@
 package com.example.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.content.IntentFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.Looper;
-import android.provider.Settings;
-import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
-import com.google.android.gms.location.LocationServices;
-
-import org.w3c.dom.Text;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     Button button;
-    Button smsButton;
+    /**  Button smsButton;
     int REQUEST_CODE = 1;
     FusedLocationProviderClient fusedLocationProviderClient;
     
@@ -52,19 +32,22 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "LAT " + location.getLatitude() + " " + "LONG " + location.getLongitude(), Toast.LENGTH_LONG).show();
         }
     };
+     **/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new DrawCircle(this));
+        setContentView(R.layout.activity_main);
 
-      /**  button = findViewById(R.id.button);
+       button = findViewById(R.id.button);
         button.setOnClickListener((View v) -> {
-            Intent intent = new Intent(this, MyService.class);
-            startService(intent);
+            //Intent intent = new Intent(this, MyService.class);
+            //startService(intent);
+            IntentFilter intentFilter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+            registerReceiver(new MyReceiver(), intentFilter);
+       });
 
-        });
-        smsButton = findViewById(R.id.smsButton);
+        /**        smsButton = findViewById(R.id.smsButton);
         smsButton.setOnClickListener((view) -> {
             if(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED){
                 ActivityCompat.requestPermissions(MainActivity.this, new String[]{
@@ -81,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
-
-    @Override
+/**
+ @Override
     protected void onPause() {
         super.onPause();
         stopLocationUpdates();
@@ -121,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
     private void stopLocationUpdates() {
         fusedLocationProviderClient.removeLocationUpdates(locationCallback);
     }
+ **/
 }
 
 class DrawCircle extends View{
