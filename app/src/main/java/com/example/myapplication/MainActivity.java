@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -41,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
        button = findViewById(R.id.button);
         button.setOnClickListener((View v) -> {
-            //Intent intent = new Intent(this, MyService.class);
-            //startService(intent);
-            IntentFilter intentFilter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-            registerReceiver(new MyReceiver(), intentFilter);
+            Intent intent = new Intent(this, MyService.class);
+            startService(intent);
+            //IntentFilter intentFilter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+            //registerReceiver(new MyReceiver(), intentFilter);
        });
 
         /**        smsButton = findViewById(R.id.smsButton);
