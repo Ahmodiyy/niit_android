@@ -9,7 +9,7 @@ public class MyReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        // TODO: This method is called when the BroadcastReceiver is receiving
+
         String a = intent.getAction();
         if(intent.getBooleanExtra("state", false)){
             Toast.makeText(context, "true", Toast.LENGTH_LONG).show();
